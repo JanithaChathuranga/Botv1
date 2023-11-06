@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+import fetch from"node-fetch";let handler=async(m,{conn:conn,usedPrefix:usedPrefix,command:command})=>{let res=await fetch("https://raw.githubusercontent.com/binjaicity/warga62/master/geayubi.json"),asup=await res.json(),json=asup[Math.floor(Math.random()*asup.length)];conn.sendFile(m.chat,json.url,"mp4",command,m)};handler.help=["geayubi"],handler.tags=["asupan"],handler.premium=!0,handler.command=/^(geayubi)$/i;export default handler;

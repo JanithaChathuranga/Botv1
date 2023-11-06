@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+import fetch from"node-fetch";let handler=async(m,{conn:conn,usedPrefix:usedPrefix,command:command})=>{await m.reply("Please wait...");try{let res=await fetch("https://raw.githubusercontent.com/ArifzynXD/database/master/asupan/korea.json"),json=await res.json();const randomURL=json[Math.floor(Math.random()*json.length)].url;await conn.sendFile(m.chat,randomURL,"trap.png","",m)}catch(error){console.error("Error fetching and sending images:",error),await m.reply("An error occurred while fetching and sending images.")}};handler.tags=["asupan"],handler.help=handler.command=["korea"],handler.nsfw=!0;export default handler;
