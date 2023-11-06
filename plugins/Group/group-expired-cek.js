@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+let handler=async(m,{conn:conn,args:args,command:command})=>{if(db.data.chats[m.chat].expired<1)throw"Group Ini Tidak Di Set Expired !";let who;who=m.isGroup?args[1]?args[1]:m.chat:args[1];args[0];var now=1*new Date;conn.reply(m.chat,`*Expired : ${msToDate(global.db.data.chats[who].expired-now)}`,m)};handler.help=["cekexpired"],handler.tags=["group"],handler.command=/^((cek)?expired)$/i,handler.group=!0;export default handler;function msToDate(ms){let days=Math.floor(ms/864e5),daysms=ms%864e5,hours=Math.floor(daysms/36e5),hoursms=ms%36e5,minutes=Math.floor(hoursms/6e4),minutesms=ms%6e4;Math.floor(minutesms/1e3);return days+" Hari️\n"+hours+" Jam\n"+minutes+" Menit"}

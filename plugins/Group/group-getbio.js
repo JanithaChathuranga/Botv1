@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+let handler=async(m,{conn:conn,text:text,command:command})=>{try{let who;who=m.isGroup?m.mentionedJid[0]?m.mentionedJid[0]:m.quoted.sender:m.quoted.sender?m.quoted.sender:m.sender;let bio=await conn.fetchStatus(who);m.reply(bio.status)}catch{if(text)throw"Bio Is Private!";try{let who=m.quoted?m.quoted.sender:m.sender,bio=await conn.fetchStatus(who);m.reply(bio.status)}catch{throw"Bio Is Private!"}}};handler.help=["getbio"].map((v=>v+" <@tag / reply>")),handler.tags=["group"],handler.command=/^(getb?io)$/i;export default handler;

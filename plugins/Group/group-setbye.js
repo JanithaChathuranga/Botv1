@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+let handler=async(m,{conn:conn,text:text,isROwner:isROwner,isOwner:isOwner})=>{if(!text)throw"Teksnya mana?";isROwner?global.conn.bye=text:isOwner?conn.bye=text:global.db.data.chats.sBye=text,m.reply("Bye berhasil diatur\n@user (Mention)")};handler.help=["setbye"].map((v=>v+" <text>")),handler.tags=["group"],handler.command=/^setbye$/i,handler.group=!0,handler.admin=!0;export default handler;

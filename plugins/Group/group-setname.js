@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+let handler=async(m,{conn:conn,args:args,text:text})=>{if(!text)throw"*[Info] Masukkan teks*";try{let text=args.join` `;args&&args[0]&&conn.groupUpdateSubject(m.chat,text)}catch(e){throw"*[Info] Error*"}};handler.help=["setname"].map((v=>v+" <text>")),handler.tags=["group"],handler.command=/^(setname)$/i,handler.group=!0,handler.admin=!0,handler.botAdmin=!0;export default handler;

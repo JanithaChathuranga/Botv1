@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+let handler=async(m,{conn:conn,text:text,isROwner:isROwner,isOwner:isOwner})=>{if(!text)throw"Teksnya mana?";isROwner?global.conn.welcome=text:isOwner?conn.welcome=text:global.db.data.chats.sWelcome=text,m.reply("Welcome berhasil diatur\n@user (Mention)\n@subject (Judul Grup)")};handler.help=["setwelcome"].map((v=>v+" <text>")),handler.tags=["group"],handler.command=/^setwelcome$/i,handler.group=!0,handler.admin=!0;export default handler;

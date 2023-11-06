@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+import{areJidsSameUser}from"@whiskeysockets/baileys";let handler=async(m,{conn:conn,participants:participants})=>{m.mentionedJid.filter((u=>!areJidsSameUser(u,conn.user.id)));let user=m.mentionedJid&&m.mentionedJid[0];await conn.groupParticipantsUpdate(m.chat,[user],"demote"),m.reply("Succes")};handler.help=["odemote"].map((v=>v+" @tag")),handler.tags=["group"],handler.command=/^(odemote)$/i,handler.owner=!0,handler.group=!0,handler.botAdmin=!0;export default handler;
