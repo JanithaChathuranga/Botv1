@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+let handler=async(m,{conn:conn})=>{new Date-global.db.data.users[m.sender].lastnguli>864e5?(global.db.data.users[m.sender].limit+=10,m.reply("_Selamat kamu mendapatkan +10 limit_"),global.db.data.users[m.sender].lastnguli=1*new Date):m.reply("Anda sudah mengklaim upah nguli hari ini")};handler.help=["nguli"],handler.tags=["rpg"],handler.command=/^(nguli)$/i,handler.group=!0,handler.fail=null;export default handler;

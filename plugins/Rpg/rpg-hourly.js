@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+const rewards={exp:9999,money:4999,potion:5,iron:2,legendary:1,emas:2,string:3,limit:1},cooldown=36e5;let handler=async(m,{conn:conn})=>{let user=global.db.data.users[m.sender];if(new Date-user.lasthourly<36e5)throw`You have already claimed this hourly claim!, wait for *${(user.lasthourly+36e5-new Date).toTimeString()}*`;let text="";for(let reward of Object.keys(rewards))reward in user&&(user[reward]+=rewards[reward],text+=`*+${rewards[reward]}* ${global.rpg.emoticon(reward)}${reward}\n`);conn.reply(m.chat,`${htki} HOURLY ${htka}\n`+text.trim(),m),user.lasthourly=1*new Date};handler.help=["hourly"],handler.tags=["xp"],handler.command=/^(hourly)$/i,handler.cooldown=36e5;export default handler;
