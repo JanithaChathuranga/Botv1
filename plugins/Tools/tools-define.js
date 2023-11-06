@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+import fetch from"node-fetch";let handler=async(m,{conn:conn,text:text})=>{if(!text)throw"Please provide a word to search for.";const url=`https://api.urbandictionary.com/v0/define?term=${encodeURIComponent(text)}`,response=await fetch(url),json=await response.json();if(!response.ok)throw`An error occurred: ${json.message}`;if(!json.list.length)throw"Word not found in the dictionary.";const firstEntry=json.list[0],message=`*Word:* ${text}\n*Definition:* ${firstEntry.definition}\n${firstEntry.example?`*Example:* ${firstEntry.example}`:""}`;conn.sendMessage(m.chat,{text:message},"extendedTextMessage",{quoted:m})};handler.help=["define <word>"],handler.tags=["tools"],handler.command=/^define/i;export default handler;

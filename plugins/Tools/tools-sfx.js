@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+import fetch from"node-fetch";let handler=async(m,{conn:conn,usedPrefix:usedPrefix,text:text,args:args,command:command})=>{if(!text)throw`Contoh:\n${usedPrefix+command} 10`;let json=await fetch(`http://www.myinstants.com/api/v1/instants/?format=json&page=${text}`),jsons=await json.json(),caption="*⎔┉━「 Search 」━┉⎔*";for(let x of jsons.results)caption+=`\n        *Name :* ${x.name}\n*Sound :* ${x.sound}\n`;return m.reply(caption)};handler.command=handler.help=["sfx"],handler.tags=["tools"];export default handler;

@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+import fetch from"node-fetch";let handler=async(m,{text:text,usedPrefix:usedPrefix,command:command})=>{if(!text)throw`uhm.. cari apa?\n\ncontoh:\n${usedPrefix+command} mabar`;let json=await fetch(`https://anabotofc.herokuapp.com/api/carigrup?apikey=AnaBot&query=${text}`),jsons=await json.json(),caption=`*⎔┉━「 ${command} 」━┉⎔*`;for(let x of jsons.result)caption+=`\n*Nama* : ${x.title}\n*Link :* ${x.link}\n*Desc :* ${x.desc}\n`;return m.reply(caption)};handler.help=["carigrup <pencarian>"],handler.tags=["tools"],handler.command=/^carig(ro?up|c)/i;export default handler;

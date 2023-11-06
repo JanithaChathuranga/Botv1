@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+import{lyrics,lyricsv2}from"@bochilteam/scraper";let handler=async(m,{conn:conn,text:text,usedPrefix:usedPrefix,command:command})=>{let teks=text||(m.quoted&&m.quoted.text?m.quoted.text:"");if(!teks)throw`Use example ${usedPrefix}${command} hallo`;const result=await lyricsv2(teks).catch((async _=>await lyrics(teks)));m.reply(`\nLyrics *${result.title}*\nAuthor ${result.author}\n\n\n${result.lyrics}\n\n\nUrl ${result.link}\n`.trim())};handler.help=["lirik"].map((v=>v+" <Apa>")),handler.tags=["tools"],handler.command=/^(lirik|lyrics|lyric)$/i;export default handler;

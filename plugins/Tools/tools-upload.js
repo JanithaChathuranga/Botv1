@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+import uploadFile from"../../lib/uploadFile.js";import uploadImage from"../../lib/uploadImage.js";let handler=async m=>{let q=m.quoted?m.quoted:m,mime=(q.msg||q).mimetype||"";if(!mime)throw"No media found";let media=await q.download(),isTele=/image\/(png|jpe?g|gif)|video\/mp4/.test(mime),link=await(isTele?uploadImage:uploadFile)(media);m.reply(`\n*Link:* ${link}\n*Size:* ${media.length} Byte\n*Expired:* ${isTele?"No Expiry Date":"Unknown"}`)};handler.help=["upload"],handler.tags=["tools"],handler.command=/^(t|upload)$/i,handler.limit=!0;export default handler;

@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+import axios from"axios";let handler=async(m,{conn:conn,args:args,usedPrefix:_p})=>{if(!args[0])throw"Query?";let tekss=(await axios.get(API("can","/api/anime/nekopoi/search",{query:args[0]}))).data.map((v=>`${v.title}\nUpload : ${v.date||"unknown"} || Id : ${v.id}`)).filter((v=>v)).join("\n\n");try{await m.reply(tekss)}catch(e){console.log(e),m.reply("Terjadi kesalahan atau server sedang mengalami gangguan.")}};handler.help=["nekopoi"].map((v=>v+" <query>")),handler.tags=["tools"],handler.command=/^(nekopoi)$/i;export default handler;

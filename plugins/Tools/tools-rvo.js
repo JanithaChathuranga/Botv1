@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+let handler=async(m,{conn:conn})=>{if(!/viewOnce/.test(m.quoted?.mtype))throw"Reply a viewOnceMessage";let mtype=Object.keys(m.quoted.message)[0],buffer=await m.quoted.download(),caption=m.quoted.message[mtype].caption||"";conn.sendMessage(m.chat,{[mtype.replace(/Message/,"")]:buffer,caption:caption},{quoted:m})};handler.help=["readviewonce","rvo"],handler.tags=["tools"],handler.command=/^(retrieve|rvo|readviewonce)$/i;export default handler;

@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+import fetch from"node-fetch";let handler=async(m,{conn:conn,args:args,usedPrefix:_p})=>{let page=args[0]||"1",ress=await fetch("https://weeb-scraper.onrender.com/api/anoboy?page="+page);if(!ress)throw"Error 404 Not Found";let res=await ress.json(),tekss=(res.data,res.data.map((v=>`${v.title}\n${v.upload_time}\n${v.param}`)).filter((v=>v)).join("\n\n"));await m.reply(tekss)};handler.help=["anoboylatest"],handler.tags=["tools"],handler.command=/^(anoboylatest)$/i;export default handler;

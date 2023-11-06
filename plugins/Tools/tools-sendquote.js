@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+async function handler(m,{isAdmin:isAdmin,isOwner:isOwner}){if(m.isGroup&&!isAdmin&&!isOwner)throw dfail("admin",m,conn),!1;if(!m.quoted)throw"balas pesannya!";let q=this.serializeM(await m.getQuotedObj());if(!q.quoted)throw"pesan yang kamu balas tidak mengandung balasan!";await q.quoted.copyNForward(m.chat,!0)}handler.help=["q"],handler.tags=["tools"],handler.command=/^q$/i;export default handler;

@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+import fetch from"node-fetch";let handler=async(m,{conn:conn,args:args,usedPrefix:_p})=>{let page=args[0]||"1",api=await fetch(global.API("can","/api/anime/otakudesu/latest",{page:page})),res=await api.json(),tekss=(res.animeList,res.animeList.map((v=>`${v.title}\n${v.episode||"-"}, ${v.uploaded_on||"-"} Hari Update ${v.day_updated||"-"}\n${v.link}`)).filter((v=>v)).join("\n\n"));try{await m.reply(tekss)}catch(e){console.log(e),m.reply("Terjadi kesalahan atau server sedang mengalami gangguan.")}};handler.help=["otakulatest"],handler.tags=["tools"],handler.command=/^(otakulatest|otakudesulatest)$/i;export default handler;

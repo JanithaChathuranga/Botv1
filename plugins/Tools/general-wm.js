@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+import{addExif}from"../../lib/sticker.js";let handler=async(m,{conn:conn,text:text})=>{if(!m.quoted)throw"Reply a sticker!";let stiker=!1;try{let[packname,...author]=text.split("|");author=(author||[]).join("|");let mime=m.quoted.mimetype||"";if(!/webp/.test(mime))throw"Reply sticker!";let img=await m.quoted.download();if(!img)throw"Reply a sticker!";stiker=await addExif(img,packname||"",author||"")}catch(e){console.error(e),Buffer.isBuffer(e)&&(stiker=e)}finally{if(!stiker)throw"Conversion failed";conn.sendMessage(m.chat,{sticker:stiker},{quoted:m})}};handler.help=["wm"],handler.tags=["tools"],handler.alias=["wm","take"],handler.command=/^(take|wm)$/i;export default handler;

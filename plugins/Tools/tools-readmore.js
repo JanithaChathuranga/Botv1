@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+let handler=async(m,{conn:conn,text:text})=>{let[l,r]=text.split`|`;l||(l=""),r||(r=""),conn.reply(m.chat,l+readMore+r,m)};handler.help=["readmore"].map((v=>v+" <teks1>|<teks2>")),handler.tags=["tools"],handler.command=/^(spoiler|hidetext|readmore|selengkapnya)$/i;export default handler;const more=String.fromCharCode(8206),readMore=more.repeat(4001);

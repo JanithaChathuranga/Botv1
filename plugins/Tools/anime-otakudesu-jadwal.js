@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+import fetch from"node-fetch";let handler=async(m,{conn:conn})=>{let res=await fetch(global.API("can","/api/anime/otakudesu/jadwal")),json=await res.json(),teks="";for(const obj of json.scheduleList){teks+=`Hari: ${obj.day}\n`;for(const _obj of obj.animeList)teks+=`- ${_obj.anime_name}\n`;teks+="\n\n"}try{await conn.sendMessage(m.chat,{text:teks},{quoted:m})}catch(e){console.log(e),m.reply("Terjadi kesalahan atau server sedang mengalami gangguan.")}};handler.help=["jadwalotaku"],handler.tags=["tools"],handler.command=/^(jadwalotaku|otakudesuschedule)$/i;export default handler;
