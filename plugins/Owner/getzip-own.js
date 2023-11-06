@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+import fs from"fs";let handler=async(m,{conn:conn,text:text})=>{if(!text)return void m.reply("Mohon berikan nama file yang akan diambil");const filename=`${text}`;try{m.reply("Tunggu sebentar, sedang mengambil file database");const sesi=await fs.promises.readFile(`./${filename}`);await conn.sendMessage(m.chat,{document:sesi,mimetype:"application/octet-stream",fileName:filename},{quoted:m})}catch(error){console.log(error),m.reply("Terjadi kesalahan dalam mengambil file database")}};handler.help=["getzip <namafile>"],handler.tags=["owner"],handler.command=/^(getzip)$/i,handler.rowner=!0;export default handler;

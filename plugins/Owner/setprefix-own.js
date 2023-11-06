@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+let handler=async(m,{conn:conn,text:text})=>{if(!text)throw"No Prefix detected...";global.prefix=new RegExp("^["+(text||global.opts.prefix||"‎xzXZ/i!#$%+£¢€¥^°=¶∆×÷π√✓©®:;?&.\\-").replace(/[|\\{}()[\]^$+*?.\-\^]/g,"\\$&")+"]"),await m.reply(`Prefix telah ditukar ke *${text}*`)};handler.help=["setprefix"].map((v=>v+" [prefix]")),handler.tags=["owner"],handler.command=/^(setprefix)$/i,handler.rowner=!0;export default handler;

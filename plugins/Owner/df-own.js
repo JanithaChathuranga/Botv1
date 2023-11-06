@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+import{tmpdir}from"os";import path,{join}from"path";import{readdirSync,statSync,unlinkSync,existsSync,readFileSync,watch}from"fs";let handler=async(m,{conn:conn,usedPrefix:_p,__dirname:__dirname,args:args,text:text})=>{let ar1=Object.keys(plugins).map((v=>v.replace(".js","")));if(!text)throw"uhm.. where the text?\n\nexample:\n.df menu";if(!ar1.includes(args[0]))return m.reply(`*🗃️ NOT FOUND!*\n==================================\n\n${ar1.map((v=>" "+v)).join`\n`}`);const file=join(__dirname,"../plugins/"+args[0]+".js");unlinkSync(file),conn.reply(m.chat,`Succes deleted "plugins/${args[0]}.js"`,m)};handler.help=["df"],handler.tags=["owner"],handler.command=/^(df)$/i,handler.owner=!0;export default handler;

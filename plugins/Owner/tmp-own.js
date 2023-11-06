@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+import fs from"fs";let handler=async(m,{usedPrefix:usedPrefix,command:command})=>{if("tmp"===command){const tmpDir="tmp";try{await fs.promises.mkdir(tmpDir,{recursive:!0}),await fs.promises.chmod(tmpDir,511),m.reply('Direktori "tmp" berhasil dibuat dengan izin 777')}catch(error){throw`Gagal membuat direktori 'tmp': ${error.message}`}}};handler.command=/^(tmp)$/i,handler.rowner=!0;export default handler;

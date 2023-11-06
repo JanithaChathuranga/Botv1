@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+import{spawn}from"child_process";let handler=async(m,{conn:conn,isROwner:isROwner,text:text})=>{if(!process.send)throw"Dont: node main.js\nDo: node index.js";if(global.conn.user.jid!=conn.user.jid)throw"_eeeeeiiittsssss..._";await m.reply("```R E S T A R T . . .```"),process.send("reset")};handler.help=["restart"],handler.tags=["owner"],handler.command=/^(res(tart)?)$/i,handler.rowner=!0;export default handler;

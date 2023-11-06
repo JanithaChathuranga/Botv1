@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+let handler=async(m,{conn:conn,text:text})=>{if(!text)return m.reply("_Masukkan Nama Grup!_");try{m.reply(wait);let group=await conn.groupCreate(text,[m.sender]),url="https://chat.whatsapp.com/"+await conn.groupInviteCode(group.gid);m.reply("_Berhasil Membuat Grup *"+text+"*_\n\n*Nama:* "+text+"\n*ID:* "+group.gid+"\n*Link:* "+url)}catch(e){m.reply("Error")}};handler.help=["creategroup"],handler.tags=["owner"],handler.command=/^((create|buat)(gc|grup|group))$/,handler.owner=!0,handler.premium=!1;export default handler;

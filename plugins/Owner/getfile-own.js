@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+import cp from"child_process";import{promisify}from"util";let exec=promisify(cp.exec).bind(cp),handler=async(m,{conn:conn,isROwner:isROwner,usedPrefix:usedPrefix,command:command,text:text})=>{if(!text)throw"Nama Filenya?";let o;m.reply("Executing...");try{o=await exec("type "+text)}catch(e){o=e}finally{let{stdout:stdout,stderr:stderr}=o;stdout.trim()&&m.reply(stdout),stderr.trim()&&m.reply(stderr)}};handler.help=["getfile"],handler.tags=["owner"],handler.command=/^(getfile|gf)$/i,handler.rowner=!0;export default handler;

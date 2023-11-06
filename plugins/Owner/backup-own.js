@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+import fs from"fs";let handler=async(m,{conn:conn})=>{let date=(new Date).toLocaleDateString("id",{day:"numeric",month:"long",year:"numeric"}),a=await conn.reply(global.owner[0]+"@s.whatsapp.net",`*🗓️ Database:* ${date}`,null);conn.sendFile(global.owner[0]+"@s.whatsapp.net",fs.readFileSync("./database.json"),"database.json","",0,0,{mimetype:"application/json",quoted:a})};handler.help=["backup"],handler.tags=["owner"],handler.command=/^(b|backup)$/i;export default handler;

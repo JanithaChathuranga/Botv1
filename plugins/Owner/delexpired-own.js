@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+let handler=async(m,{conn:conn,args:args,usedPrefix:usedPrefix,command:command})=>{let who;who=m.isGroup?args[1]?args[1]:m.chat:args[1],new Date,global.db.data.chats[who].expired,global.db.data.chats[who].expired=!1,conn.reply(m.chat,"Berhasil menghapus hari kadaluarsa untuk Grup ini",m)};handler.help=["delexpired"],handler.tags=["owner"],handler.command=/^(delexpired|delsewa)$/i,handler.rowner=!0,handler.group=!0;export default handler;function msToDate(ms){let days=Math.floor(ms/864e5),daysms=ms%864e5,hours=Math.floor(daysms/36e5),hoursms=ms%36e5,minutes=Math.floor(hoursms/6e4),minutesms=ms%6e4;Math.floor(minutesms/1e3);return days+" hari "+hours+" jam "+minutes+" menit"}
