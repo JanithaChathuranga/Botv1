@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+import axios from"axios";let handler=async(m,{conn:conn,text:text})=>{if(!text)return conn.reply(m.chat,"Masukan Teksnya",m);await m.reply("Searching..."),axios.get(`https://api.lolhuman.xyz/api/tebakumur?apikey=${global.lolkey}&name=${text}`).then((res=>{let hasil=`Namamu : ${text}\nUmurmu : ${res.data.result.age}`;conn.reply(m.chat,hasil,m)}))};handler.help=["tebakumur"].map((v=>v+" <nama>")),handler.tags=["internet","fun"],handler.command=/^(tebakumur)$/i,handler.owner=!1,handler.exp=0,handler.limit=!0;export default handler;
