@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+let handler=async(m,{conn:conn,text:text,usedPrefix:usedPrefix,command:command})=>{let user=global.db.data.users[m.sender];user.afk=+new Date,user.afkReason=text;let mentionedJid=[m.sender],caption=`${conn.getName(m.sender)} @${m.sender.replace(/@.+/,"")} Sekarang lagi AFK\nDengan Alasan${text?": "+text:""}`;conn.reply(m.chat,caption,m,{contextInfo:{mentionedJid:mentionedJid}})};handler.help=["afk [alasan]"],handler.tags=["main"],handler.group=!0,handler.command=/^afk$/i;export default handler;

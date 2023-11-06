@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+import{createHash}from"crypto";let Reg=/\|?(.*)([.|] *?)([0-9]*)$/i,handler=async function(m,{conn:conn,text:text,usedPrefix:usedPrefix}){let sn=createHash("md5").update(m.sender).digest("hex"),pp=await conn.profilePictureUrl(m.sender,"image").catch((_=>"./src/avatar_contact.png"));conn.sendMessage(m.chat,{text:sn,contextInfo:{externalAdReply:{title:botdate,body:"ᴊᴄ ʙᴏᴛᴢ",thumbnailUrl:pp,sourceUrl:sig,mediaType:1,renderLargerThumbnail:!0}}},{quoted:m})};handler.help=["ceksn"],handler.tags=["main"],handler.command=/^(ceksn)$/i,handler.register=!0;export default handler;

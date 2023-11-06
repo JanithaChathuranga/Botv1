@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+const rewards={limit:10909143},cooldown=31536e6;let handler=async(m,{conn:conn})=>{let user=global.db.data.users[m.sender];if(new Date-user.lastclaim<cooldown)throw`You have already claimed this daily limit!, wait for *${(user.lastclaim+cooldown-new Date).toTimeString()}*`;let text="";for(let reward of Object.keys(rewards))reward in user&&(user[reward]+=rewards[reward],text+=`*+${rewards[reward]}* ${reward}\n`);conn.reply(m.chat,text.trim(),m),user.lastclaim=1*new Date};handler.help=["claimlimit"],handler.tags=["main"],handler.command=/^(claimlimit)$/i,handler.cooldown=cooldown;export default handler;
