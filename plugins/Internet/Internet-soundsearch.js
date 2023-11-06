@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+import fetch from"node-fetch";let handler=async(m,{conn:conn,text:text})=>{if(!text)throw"Judulnya?";let res=await fetch(`https://api.xyroinee.xyz/api/search/soundcloud?q=${text}&apikey=${global.xyro}`),anu=await res.json();anu=anu.data.map((v=>`*Judul:* ${v.judul}\n*Link:* ${v.link}\n`)).join`\n\n°°°°°°°°°°°°°°°°°°°°°°°°°°°°°\n\n`,m.reply(anu)};handler.help=["soundsearch"],handler.tags=["internet"],handler.command=/^(soundsearch)$/i,handler.limit=!0;export default handler;
