@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+import fetch from"node-fetch";let handler=async(m,{conn:conn,command:command})=>{let nek=(await(await fetch("https://raw.githubusercontent.com/ArugaZ/grabbed-results/main/random/anime/neko.txt")).text()).split("\n"),neko=await nek[Math.floor(Math.random()*nek.length)];if(""==neko)throw"Error";conn.sendFile(m.chat,neko,"error.jpg","Nyaww~ 🐾💗",m)};handler.command=/^(neko)$/i,handler.tags=["anime"],handler.help=["neko"];export default handler;

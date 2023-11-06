@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+import axios from"axios";let handler=async(m,{command:command,conn:conn,usedPrefix:usedPrefix})=>{let res=(await axios.get(`https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/anime-${command}.json`)).data,haha=await res[Math.floor(res.length*Math.random())];conn.sendFile(m.chat,haha,"error.jpg",`_${command}_`,m)};handler.command=handler.help=["akira","akiyama","anna","asuna","ayuzawa","boruto","chiho","chitoge","deidara","erza","elaina","eba","emilia","hestia","hinata","inori","isuzu","itachi","itori","kaga","kagura","kaori","keneki","kotori","kurumi","madara","mikasa","miku","minato","naruto","nezuko","sagiri","sasuke","sakura","cosplay"],handler.tags=["anime"];export default handler;
