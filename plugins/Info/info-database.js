@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+let handler=async m=>{let totalreg=Object.keys(global.db.data.users).length,rtotalreg=Object.values(global.db.data.users).filter((user=>1==user.registered)).length;m.reply(`*Jumlah database saat ini ${totalreg} user*\n*Dan user teregistrasi saat ini ${rtotalreg} user*`)};handler.help=["database"],handler.tags=["info"],handler.command=/^(database|jumlahdatabase|user)$/i;export default handler;

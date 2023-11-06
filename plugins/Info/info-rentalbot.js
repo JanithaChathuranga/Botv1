@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+let handler=async(m,{conn:conn})=>{await m.reply("List harga sewabot :\n5 Hari 3k\n2 Minggu 10k\n1 Bulan 17k\n1 Tahun 50k\n\nFitur\nDownloader\nTiktok, Instagram, Facebook, Mega, SoundCloud, Telegram Sticker, Twitter, Cocofun, Google Drive, MediaFire, Gitclone, Ytmp3, Ytmp4, Pinterest\n\nSpecial Fitur\nOtakudesu Latest, Detail, Download\nNekopoi Latest, Detail, Download\n\n*Pembayaran?? all payment*\nDana/ovo/gopay/qris\nVia pulsa?? nambah 5k\nChat https://s.id/pnggilajacn")};handler.help=["iklan"],handler.tags=["info"],handler.command=/^(rental|iklan)$/i;export default handler;

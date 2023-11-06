@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+export default function handler(m){m.reply(clockString(process.uptime()))}function clockString(ms){return[isNaN(ms)?"--":Math.floor(ms%86400/3600),isNaN(ms)?"--":Math.floor(ms%3600/60),isNaN(ms)?"--":Math.floor(ms%60)].map((v=>v.toString().padStart(2,0))).join(":")}handler.help=["runtime"],handler.tags=["info"],handler.command=/^(up|run)time$/i;
