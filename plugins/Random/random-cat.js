@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+import fetch from"node-fetch";let handler=async(m,{conn:conn,text:text})=>{try{let res=await fetch("https://api.thecatapi.com/v1/images/search"),img=await res.json(),caption="\n\n_©The Lasdan - Bot_\n\n".trim();conn.sendFile(m.chat,img[0].url,"cat.jpg",caption,m)}catch(e){throw console.log(e),"*Error!*"}};handler.help=["cat"],handler.tags=["random"],handler.command=/^cat$/i,handler.fail=null;export default handler;

@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+import fetch from"node-fetch";let handler=async(m,{conn:conn})=>{m.reply("Tunggu sebentar...");let res=await fetch("https://xzn.wtf/api/randommeme?apikey=mufar"),json=await res.json();if(!json.caption||!json.media)throw"Gagal memuat meme acak";{let caption=json.caption,mediaUrl=json.media;await conn.sendFile(m.chat,mediaUrl,"",caption,m)}};handler.help=["meme"],handler.tags=["random"],handler.command=/^(meme)$/i,handler.limit=!0;export default handler;

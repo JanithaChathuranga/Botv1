@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+import fetch from"node-fetch";let handler=async(m,{conn:conn,command:command})=>{let res=await fetch("https://xyroinee-apis.claraaaaaaa1909.repl.co/api/anime/nekopoi?apikey=wiWISTatY8"),anu=await res.json();conn.sendFile(m.chat,anu.data,"wikwik.mp4","_Jangan Coli Ya..._",m)};handler.command=/^(bkp)$/i,handler.tags=["random"],handler.help=["bkp"],handler.premium=!1;export default handler;
