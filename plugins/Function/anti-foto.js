@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+export async function before(m,{isAdmin:isAdmin,isBotAdmin:isBotAdmin}){if(m.isBaileys&&m.fromMe)return!0;let chat=global.db.data.chats[m.chat],isFoto=(global.db.data.chats[m.sender],m.mtype),hapus=m.key.participant,bang=m.key.id;return!chat.antiFoto||!isFoto||"imageMessage"!==isFoto||(!(!isAdmin&&isBotAdmin)||(m.reply("*Foto Terdeteksi*\n\nMaaf Tapi Harus Saya Hapus Karna Di Admin/Owner Mengaktifkan Anti Foto Untuk Chat Ini"),this.sendMessage(m.chat,{delete:{remoteJid:m.chat,fromMe:!1,id:bang,participant:hapus}})))}

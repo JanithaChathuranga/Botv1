@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+export async function before(m,{conn:conn,isBotAdmin:isBotAdmin}){try{const mtype=m.mtype,settings={audioMessage:{viewOnce:!0},videoMessage:{viewOnce:!0},imageMessage:{viewOnce:!0},documentMessage:{viewOnce:!0}},chat=global.db.data.chats[m.chat];if(settings[mtype]&&chat.antiMedia){let doc=m.mediaMessage;Object.assign(doc[mtype],settings[mtype]),await conn.relayMessage(m.chat,doc,{quoted:m});const hapus=m.sender||m.participant,bang=m.id;if(isBotAdmin)return conn.sendMessage(m.chat,{delete:{remoteJid:m.chat,id:bang,participant:hapus}})}}catch{throw"Terjadi kesalahan"}}

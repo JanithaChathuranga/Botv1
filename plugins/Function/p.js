@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+let handler=async(m,{conn:conn,text:text,usedPrefix:usedPrefix,command:command})=>{const deleteMessage={delete:{remoteJid:m.key.remoteJid,fromMe:!1,id:m.key.id,participant:[m.sender]}};await conn.sendMessage(m.chat,deleteMessage),conn.sendMessage(m.chat,{text:"lucu"},{quoted:m,ephemeralExpiration:global.ephemeral})};handler.customPrefix=/^(p)$/i,handler.command=new RegExp;export default handler;

@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+export async function before(m,{isAdmin:isAdmin,isBotAdmin:isBotAdmin}){if(m.isBaileys&&m.fromMe)return!0;let chat=global.db.data.chats[m.chat];global.db.data.chats[m.sender],m.key.participant,m.key.id;return!chat.antiBot||!m.isBaileys||0!=m.fromMe||(!(!isAdmin&&isBotAdmin)||(m.reply("*Bot Lain Terdeteksi*\n\nMaaf Kak Harus Saya Keluarkan, Karna Admin Mengaktifkan Anti Bot :)"),await conn.groupParticipantsUpdate(m.chat,[m.sender],"remove")))}

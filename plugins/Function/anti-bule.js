@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+export async function before(m,{isAdmin:isAdmin,isBotAdmin:isBotAdmin}){let name=await this.getName(m.sender),chat=global.db.data.chats[m.chat],user=global.db.data.users[m.sender],caption=`👋 Anti Bule ${name} @${m.sender.split("@")[0]}, Thanks!`.trim();if(chat.antibule&&!m.sender.startsWith("62"))return user.banned=!0,this.reply(m.chat,caption,m,{mentions:this.parseMention(caption)}),this.groupParticipantsUpdate(m.chat,[m.sender],"remove")}

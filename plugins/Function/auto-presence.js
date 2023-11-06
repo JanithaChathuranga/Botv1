@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+export async function before(m){if(!global.db.data.chats[m.chat].autoPresence)return;const presenceStatus=Object.values(global.plugins).flatMap((plugin=>[].concat(plugin.command))).some((cmd=>cmd instanceof RegExp?cmd.test(m.text):m.text.includes(cmd)))?"composing":"available";presenceStatus&&await this.sendPresenceUpdate(presenceStatus,m.chat)}export const disabled=!1;

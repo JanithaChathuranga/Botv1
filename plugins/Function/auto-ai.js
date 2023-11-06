@@ -1,0 +1,3 @@
+// Klo mau pake, pake aja ini bkn enc cma terser aja
+
+import Acytoo from"../../lib/acytoo.js";const model="gpt-3.5-turbo",getAcytooResponse=async(messages,proxy)=>{const responseChunks=await Acytoo.createAsyncGenerator(model,messages,proxy),responseArray=[];for await(const chunk of responseChunks)responseArray.push(chunk);return responseArray.join("")};export async function before(m){const chat=global.db.data.chats[m.chat];if(m.isBaileys||!m.text)return!1;const messages=[{role:"system",content:"You are a helpful assistant."},{role:"user",content:m.text}];try{if(chat.autoAi){const result=await getAcytooResponse(messages,null);result&&await this.reply(m.chat,result,m)}}catch{await this.reply(m.chat,"Error occurred.",m)}}export const disabled=!1;
